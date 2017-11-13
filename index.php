@@ -6,8 +6,6 @@
     <b:skin></b:skin>
   &lt;/head&gt;&lt;!--<head/>--&gt;
   <body>
-    <b:section id='content'>
-      <?php include('blog.php') ?>
-    </b:section>
+    <b:section id='content'></b:section>
     &lt;!--</body>--&gt;&lt;/body&gt;
 </html>
