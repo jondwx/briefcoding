@@ -1,10 +1,12 @@
 <div role="main">
 
-  <div class="jumbotron">
-    <div class="container">
-      <?php include('header.php') ?>
+  <b:if cond='data:blog.pageType == &quot;index&quot;'>
+    <div class="jumbotron">
+      <div class="container">
+        <?php include('header.php') ?>
+      </div>
     </div>
-  </div>
+  </b:if>
 
   <div class="container">
     <?php include('blog.php') ?>
