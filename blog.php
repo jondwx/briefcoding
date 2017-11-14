@@ -13,7 +13,7 @@
 
     <b:includable id="post-item">
       <b:loop var='post' values='data:posts'>
-        <div class="col-lg-8 offset-lg-2" style="padding-top: 32px;">
+        <div class="col-lg-8 offset-lg-2">
           <h1><data:post.title/></h1>
           <div>
             <data:post.body/>

@@ -1,14 +1,14 @@
 <div role="main">
 
   <b:if cond='data:blog.pageType == &quot;index&quot;'>
-    <div class="jumbotron">
+    <div class="jumbotron d-none d-md-block">
       <div class="container">
         <?php include('header.php') ?>
       </div>
     </div>
   </b:if>
 
-  <div class="container">
+  <div class="container" style="padding-top: 32px;">
     <?php include('blog.php') ?>
     <hr/>
   </div>
