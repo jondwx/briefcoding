@@ -1,11 +1,14 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" expr:href="data:blog.homepageUrl">
+    <data:blog.title/>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
+      <!--
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
@@ -23,25 +26,30 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
+      -->
     </ul>
     <form
-      class="form-inline my-2 my-lg-0"
+      expr:action="data:blog.searchUrl"
+      class="input-group"
       style="
-        margin: .2rem 0!important;
+        margin-top: 6px;
+        width: auto;
       "
     >
       <input
-        class="form-control mr-sm-2"
+        name="q"
+        class="form-control"
         type="text"
-        placeholder="Search"
         aria-label="Search"
-        style="font-size: 14px;"
+        expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;'
       />
-      <button
-        class="btn btn-outline-success my-2 my-sm-0"
-        type="submit"
-        style="font-size: 14px;"
-      >Search</button>
+      <span class="input-group-btn">
+        <button
+          class="btn btn-success"
+          type="submit"
+        >Search</button>
+      </span>
     </form>
+
   </div>
 </nav>
