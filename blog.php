@@ -13,7 +13,7 @@
 
     <b:includable id="post-item">
       <b:loop var='post' values='data:posts'>
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-8 offset-lg-2" style="padding-top: 32px;">
           <h1><data:post.title/></h1>
           <div>
             <data:post.body/>
@@ -24,10 +24,10 @@
 
     <b:includable id="post-index">
       <b:loop var='post' values='data:posts'>
-        <div class="col-md-4">
-          <h2>
+        <div class="col-md-6" style="padding-bottom: 32px;">
+          <h4>
             <a expr:href='data:post.url'><data:post.title/></a>
-          </h2>
+          </h4>
           <div>
             <data:post.body
               /><b:if cond='data:post.hasJumpLink'

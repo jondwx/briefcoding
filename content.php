@@ -16,5 +16,5 @@
 </div>
 
 <div class="container">
-  <p>&#169; <data:blog.title/> 2017</p>
+  <p>&#169; DragonGlass 2017</p>
 </div>

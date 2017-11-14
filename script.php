@@ -1,3 +1,4 @@
+<b:if cond='data:blog.pageType == &quot;index&quot;'>
 <script>
   $(function() {
     var text = $("#header-content .d-none").html();
@@ -6,3 +7,4 @@
     $("#header-content .lead").text(texts[1]);
   });
 </script>
+</b:if>
