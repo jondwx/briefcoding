@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+
+      function convertTextToHTML(text) {
+        var result = text;
+        var matches = text.match(/\*(.*?)\*/g);
+        for (var i = 0;matches != null && i < matches.length;i++) {
+          var match = matches[i];
+          var baseText = match.replace(/\*/g, "");
+          var changeTo = {match: match, to: "<b>"+baseText+"</b>"};
+          result = result.replace(changeTo.match, changeTo.to);
+        }
+        return result;
+      }
+
+      var cases = [
+        {
+          input: "My name is *dwi*",
+          output: "My name is <b>dwi</b>",
+        },
+        {
+          input: "My name is dwi",
+          output: "My name is dwi",
+        },
+        {
+          input: "My *name* is *dwi*",
+          output: "My <b>name</b> is <b>dwi</b>",
+        },
+      ];
+
+      for (var i = 0;i < cases.length;i++) {
+        console.log("Testing case #"+i);
+        var theCase = cases[i];
+        var test = convertTextToHTML(theCase.input);
+        if (theCase.output != test) {
+          console.error(
+            "expected: \""
+            + theCase.output + "\" output: \"" + test + "\""
+          );
+        } else {
+          console.log("success: " + test);
+        }
+      }
+
+    });
+  </script>
+</body>
+</html>
