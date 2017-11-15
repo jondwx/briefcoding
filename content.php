@@ -1,7 +1,7 @@
 <div role="main">
 
   <b:if cond='data:blog.pageType == &quot;index&quot;'>
-    <div class="jumbotron d-none d-md-block">
+    <div class="jumbotron d-none d-md-block text-light bg-dark">
       <div class="container">
         <?php include('header.php') ?>
       </div>

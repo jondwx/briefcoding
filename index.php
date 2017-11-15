@@ -8,6 +8,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta name="theme-color" content="#343a40"/>
 
     <title><data:blog.title/></title>
 
@@ -15,8 +16,11 @@
 
     <b:skin></b:skin>
 
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/>
+
     <style>
       body {
+        font-family: Raleway;
         padding-top: 3.5rem;
       }
     </style>
