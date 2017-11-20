@@ -6,11 +6,7 @@
     </b:includable>
 
     <b:includable id='description'>
-      <div id="header-content">
-        <h1 class="display-5 title"></h1>
-        <p class='lead'></p>
-        <p class="d-none"><data:description/></p>
-      </div>
+      <p><data:description/></p>
     </b:includable>
 
   </b:widget>

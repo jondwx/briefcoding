@@ -2,18 +2,16 @@
   <b:widget id="Blog0" type="Blog" class="row">
 
     <b:includable id="main">
-      <div class="row">
-        <b:if cond='data:blog.pageType == &quot;index&quot;'>
-          <b:include name="post-index"/>
-        <b:else/>
-          <b:include name="post-item"/>
-        </b:if>
-      </div>
+      <b:if cond='data:blog.pageType == &quot;index&quot;'>
+        <b:include name="post-index"/>
+      <b:else/>
+        <b:include name="post-item"/>
+      </b:if>
     </b:includable>
 
     <b:includable id="post-item">
       <b:loop var='post' values='data:posts'>
-        <div class="col-lg-8 offset-lg-2">
+        <div>
           <h1><data:post.title/></h1>
           <div>
             <data:post.body/>
@@ -24,7 +22,7 @@
 
     <b:includable id="post-index">
       <b:loop var='post' values='data:posts'>
-        <div class="col-md-6" style="padding-bottom: 32px;">
+        <div>
           <h4>
             <a expr:href='data:post.url'><data:post.title/></a>
           </h4>
