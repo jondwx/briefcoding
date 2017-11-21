@@ -16,6 +16,8 @@ table.tic-tac-toe-board td {
 }
 </style>
 
+<br/>
+<br/>
 <h2>#1 The Board</h2>
 
 <div>
@@ -44,12 +46,22 @@ table.tic-tac-toe-board td {
 <p>
 Start with creating the board.
 In this case the game needs a board that has 3x3 grid,
-something like the figure above.
-I decided to use HTML element to create base canvas for the game.
-But, what element can create something like that?
-I think there are several ways to achieve that look, it can be done using
-nested <code>div</code>, but this time I will go with <code>table</code>
-element, because I guess that is the easiest.
+see <i>The Board</i> figure.
+
+Now, what can I do in order to get that look?
+
+I guess there are several ways to do that, it can be done using
+nested <code>div</code>, css, or javascript.
+
+But this time I will go with native HTML element.
+
+I decide to use HTML element to create base canvas for the game.
+
+The element I use is <code>table</code> along with its components
+<code>tr</code>, <code>td</code>.
+
+The reason I use <code>table</code> element is because 
+the structure that match for this kind of situation.
 </p>
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">table</span>&gt;
@@ -74,10 +86,28 @@ I See Nothing
 </h3>
 
 <p>
-  After writing the html table structure, I don't see anything in the browser,
-  something wrong? Hmmmm, oh, I see... I try to add <code>border</code> attribute
-  to the <code>table</code> tag
+  After writing that code, I open it in a browser.
+  But there is something wrong, I don't see anything in the browser.
+  I debug the problem and found some...
 </p>
+
+<ol>
+  <li>
+    <b>No Content</b>
+    <p>
+      Insert some text inside <code>td</code>
+    </p>
+  </li>
+  <li>
+    <b>No Border</b>
+    <p>
+      Add <code>border</code> attribute with value <code>1</code>
+      to the <code>table</code> tag,
+      I drop the content from <code>td</code> because I can already see
+      something
+    </p>
+  </li>
+</ol>
 
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">table</span> <span style="color: #0000CC">border</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;1&quot;</span>&gt;
 </pre></div>
@@ -107,10 +137,10 @@ reload, and...
 </div>
 
 <p>
-what is that? I zoom in 1000%...
+what is that? I zoom in 500%...
 </p>
 
-<div style="zoom: 1000%;">
+<div style="zoom: 500%;">
   <table border="1">
     <tr>
       <td></td>
@@ -129,3 +159,9 @@ what is that? I zoom in 1000%...
     </tr>
   </table>
 </div>
+
+<br/>
+<br/>
+<h2>#2 Prettify The Table</h2>
+
+
