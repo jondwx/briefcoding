@@ -1,0 +1,10 @@
+table, table td {
+  border: 8px solid black;
+}
+table {
+  border-spacing: 0;
+}
+table td{
+  width: 64px;
+  height: 64px;
+}
