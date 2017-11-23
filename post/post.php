@@ -3,6 +3,18 @@ Those three web technologies can be used to create a web page. Have You done tha
 Want something more? How about creating a simple Tic Tac Toe game?
 This post explains how I build Tic Tac Toe Game In 3 simple steps<!--more-->
 
+<br/>
+<br/>
+<br/>
+<div style="text-align: center">
+  <a href="https://github.com/jondwx/tic-tac-toe" target="_blank">Code</a>
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  <a href="https://jondwx.github.io/tic-tac-toe/" target="_blank">Game</a>
+</div>
+
 <style>
 table.tic-tac-toe-board {
   margin: 0 auto;
@@ -338,3 +350,81 @@ How do I solve this? With another border for the table.
     <td></td>
   </tr>
 </table>
+
+<br/>
+<br/>
+<h2>#3 The Action</h2>
+
+<p>
+  <i>The Board</i> is ready, now is the time for some actions. This is the time
+  when JavaScript enter. What kind of action I am going to handle? onclick?
+  Yes, exactly! Where do I need to put the onclick action? It can be in the
+  <code>html</code>, <code>body</code>, <code>td</code> (the blocks). The
+  most logical answer is in the <code>td</code> because that is where I need
+  to click, but the problem is I need to give each <code>td</code>
+  <code>onclick</code> code and that is not very effective. The solution for
+  this is I put the <code>onclick</code> in the <code>table</code> element.
+</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">table</span> <span style="color: #0000CC">id</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;board&quot;</span>&gt;
+</pre></div>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">script</span>&gt;
+  console.log(board);
+  board.onclick <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(e) {
+    console.log(e);
+  };
+&lt;/<span style="color: #007700">script</span>&gt;
+</pre></div>
+
+<p>
+  <b>board</b> variable automatically generated for the page script. I can use
+  it and it points to the <code>table</code> element. Now, how I detect the
+  <code>td</code> elements being clicked? See the variable called <code>e</code>
+  from the function <code>onclick</code>. The <code>e</code> variable has
+  bunch of properties, one of them I can verify which <code>td</code> is clicked
+  . The problem is every browser has different value and ways to access it.
+  Below is the code to handle for some browsers.
+</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008800; font-weight: bold">function</span> getClickedElement(e) {
+    <span style="color: #008800; font-weight: bold">if</span> (e.path) { <span style="color: #888888">// chrome</span>
+        <span style="color: #008800; font-weight: bold">return</span> e.path[<span style="color: #0000DD; font-weight: bold">0</span>];
+    }
+    <span style="color: #008800; font-weight: bold">if</span> (e.explicitOriginalTarget) { <span style="color: #888888">// firefox</span>
+        <span style="color: #008800; font-weight: bold">return</span> e.explicitOriginalTarget;
+    }
+    <span style="color: #008800; font-weight: bold">if</span> (e.target) { <span style="color: #888888">// edge, internet explorer</span>
+        <span style="color: #008800; font-weight: bold">return</span> e.target;
+    }
+    console.error(<span style="background-color: #fff0f0">&quot;can&#39;t find element!&quot;</span>);
+}
+</pre></div>
+
+<p>
+  Next, I need to assign something to the clicked element. I simply put an 
+  "X" or "O" inside the <code>td</code> element to mark the moves.
+  Once block clicked, it can't be clicked again, so I add a property to the
+  element so it knows not to make another action. Another thing is it will 
+  take turns between X and O, to handle this I create a variable called
+  <code>current</code> it will change between X and O every successful new
+  click.
+</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008800; font-weight: bold">var</span> x <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;X&quot;</span>, o <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;O&quot;</span>;
+<span style="color: #008800; font-weight: bold">var</span> current <span style="color: #333333">=</span> x;
+board.onclick <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(e) {
+    <span style="color: #008800; font-weight: bold">var</span> td <span style="color: #333333">=</span> getClickedElement(e);
+    <span style="color: #008800; font-weight: bold">if</span> (td <span style="color: #333333">&amp;&amp;</span> <span style="color: #333333">!</span>td.clicked) {
+        td.clicked <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">true</span>;
+        td.innerText <span style="color: #333333">=</span> current;
+        current <span style="color: #333333">=</span> current<span style="color: #333333">==</span>x<span style="color: #333333">?</span>o<span style="color: #333333">:</span>x;
+    }
+};
+</pre></div>
+
+<hr/>
+
+Alright, the game is ready! Although there are more improvements can be added
+but right now I can play the game. Refresh the page to get initial state, and
+for the win, you can see for yourself, haha!

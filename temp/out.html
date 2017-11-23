@@ -1,9 +1,11 @@
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">style</span>&gt;
-<span style="color: #007700">table</span> <span style="color: #007700">td</span> {
-    <span style="color: #008800; font-weight: bold">width</span>: <span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333399; font-weight: bold">px</span>;
-    <span style="color: #008800; font-weight: bold">height</span>: <span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333399; font-weight: bold">px</span>;
-}
-&lt;/<span style="color: #007700">style</span>&gt;
-
-&lt;<span style="color: #007700">table</span> <span style="color: #0000CC">border</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;1&quot;</span>&gt;
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008800; font-weight: bold">var</span> x <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;X&quot;</span>, o <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;O&quot;</span>;
+<span style="color: #008800; font-weight: bold">var</span> current <span style="color: #333333">=</span> x;
+board.onclick <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(e) {
+    <span style="color: #008800; font-weight: bold">var</span> td <span style="color: #333333">=</span> getClickedElement(e);
+    <span style="color: #008800; font-weight: bold">if</span> (td <span style="color: #333333">&amp;&amp;</span> <span style="color: #333333">!</span>td.clicked) {
+        td.clicked <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">true</span>;
+        td.innerText <span style="color: #333333">=</span> current;
+        current <span style="color: #333333">=</span> current<span style="color: #333333">==</span>x<span style="color: #333333">?</span>o<span style="color: #333333">:</span>x;
+    }
+};
 </pre></div>
