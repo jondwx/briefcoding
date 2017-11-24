@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Web</title>
+      <b:skin></b:skin>
+  </head>
+  <body>
+    <b:section id="main"></b:section>
+  </body>
+</html>

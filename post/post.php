@@ -1,430 +1,83 @@
-So You know about HTML, CSS and JavaScript? Want to build something with it?
-Those three web technologies can be used to create a web page. Have You done that?
-Want something more? How about creating a simple Tic Tac Toe game?
-This post explains how I build Tic Tac Toe Game In 3 simple steps<!--more-->
-
-<br/>
-<br/>
-<br/>
-<div style="text-align: center">
-  <a href="https://github.com/jondwx/tic-tac-toe" target="_blank">Code</a>
-  &nbsp;
-  &nbsp;
-  &nbsp;
-  &nbsp;
-  <a href="https://jondwx.github.io/tic-tac-toe/" target="_blank">Game</a>
-</div>
-
-<style>
-table.tic-tac-toe-board {
-  margin: 0 auto;
-  border: 4px solid black;
-  border-spacing: 0;
-}
-table.tic-tac-toe-board td {
-  border: 4px solid black;
-  width: 64px;
-  height: 64px;
-}
-</style>
-
-<br/>
-<br/>
-<h2>#1 The Board</h2>
-
-<div>
-  <table class="tic-tac-toe-board">
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-  <div style="text-align: center;">
-    <em>The Board</em>
-  </div>
-</div>
+Using blogger as a platform of blogging is still my preference because 
+I can do whatever I want to change the <i>frontend</i> to be exactly like
+what I want. Here is the first step of how I changed my blogger looks<!--more-->
 
 <p>
-Start with creating the board.
-In this case the game needs a board that has 3x3 grid,
-see <i>The Board</i> figure.
-
-Now, what can I do in order to get that look?
-
-I guess there are several ways to do that, it can be done using
-nested <code>div</code>, css, or javascript.
-
-But this time I will go with native HTML element.
-
-I decide to use HTML element to create base canvas for the game.
-
-The element I use is <code>table</code> along with its components
-<code>tr</code> and <code>td</code>.
-
-The reason I use <code>table</code> element is because 
-the structure that match for this kind of situation.
+  I don't like something that I don't understand. So, starting with the output
+  of my page on blogger, I go to <b>Theme</b> &gt; <b>Edit HTML</b> and delete
+  all of the code in the editor. But it can't be saved.
+  <span style="color: DarkRed;">
+    Error parsing XML, line 1, column 1: Premature end of file.
+  </span>
+  I solved it by writing some code in the editor
 </p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">table</span>&gt;
-</pre></div>
-
-3 times this block to create 3 rows
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">tr</span>&gt;
-    &lt;<span style="color: #007700">td</span>&gt;&lt;/<span style="color: #007700">td</span>&gt;
-    &lt;<span style="color: #007700">td</span>&gt;&lt;/<span style="color: #007700">td</span>&gt;
-    &lt;<span style="color: #007700">td</span>&gt;&lt;/<span style="color: #007700">td</span>&gt;
-&lt;/<span style="color: #007700">tr</span>&gt;
-</pre></div>
-
-...
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;/<span style="color: #007700">table</span>&gt;
-</pre></div>
-
-<h3>
-I See Nothing
-</h3>
-
-<p>
-  After writing that code, I open it in a browser.
-  But there is something wrong, I don't see anything in the browser.
-  I debug the problem and found some...
-</p>
-
-<ol>
-  <li>
-    <b>No Content</b>
-    <p>
-      Insert some text inside <code>td</code>
-    </p>
-  </li>
-  <li>
-    <b>No Border</b>
-    <p>
-      Add <code>border</code> attribute with value <code>1</code>
-      to the <code>table</code> tag,
-      I drop the content from <code>td</code> because I can already see
-      something
-    </p>
-  </li>
-</ol>
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">table</span> <span style="color: #0000CC">border</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;1&quot;</span>&gt;
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">html</span>&gt;&lt;/<span style="color: #007700">html</span>&gt;
 </pre></div>
 
 <p>
-reload, and...
+  The previous error is no longer appear but I got new error.
+  <span style="color: DarkRed">
+    There should be one and only one skin in the theme, and we found: 0.
+  </span>
+  After some time of searching, I found out about <b>blogger tags</b>.
+  It is the rule from blogger to add some kind of custom tag in order
+  to parse the code.
+  Then, I add the skin tag
+  <code>b:skin</code> inside the <code>html</code> tag because it will cause
+  another error if it is outside. The next thing is usual <code>HTML</code>
+  code, I need to add <code>head</code> and <code>body</code> tags, because the
+  theme must include them.
 </p>
-
-<div>
-  <table border="1">
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-</div>
 
 <p>
-what is that? I zoom in 500%...
+  Still, I can't save my work.
+  <span style="color: DarkRed;">
+    We did not find any section in your theme.
+    A theme must have at least one b:section tag.
+  </span>
+  I need another blogger tag, <code>b:section</code> to be added to the editor.
+  I place it inside the body tag because later it will become the content of
+  the page. I also need to add an attribute to the <code>b:section</code> tag
+  called <code>id</code> and I give it value <code>main</code> to get rid
+  of error
+  <span style="color: DarkRed;">
+    One of the sections is missing the required id attribute.
+    Every section should have a unique id.
+  </span>
+  After that, I can save the code, finally!
 </p>
 
-<div style="height: 110px;">
-  <table border="1" style="transform: scale(5);position: relative;transform-origin: 0 0;">
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-</div>
-
-<br/>
-<br/>
-<h2>#2 Prettify The Table</h2>
-
-<p>
-  Now, I'm going to change the table styles, to be exactly like <i>The Board</i>
-  figure. first thing to do is make the <i>table data</i> bigger, so I don't
-  have to zoom. Let say I give 64px width and height using css and it is
-  relative to a class given to the table.
-</p>
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">style</span>&gt;
-<span style="color: #007700">table</span> <span style="color: #007700">td</span> {
-    <span style="color: #008800; font-weight: bold">width</span>: <span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333399; font-weight: bold">px</span>;
-    <span style="color: #008800; font-weight: bold">height</span>: <span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333399; font-weight: bold">px</span>;
-}
-&lt;/<span style="color: #007700">style</span>&gt;
-
-&lt;<span style="color: #007700">table</span> <span style="color: #0000CC">border</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;1&quot;</span>&gt;
-</pre></div>
-
-<style>
-  .the-board1 td{
-    width: 64px;
-    height: 64px;
-  }
-</style>
-
-<table class="the-board1" border="1">
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-<p>
-I notice something that the <code>td</code> element maybe not computed with
-width and height of 64px. This may cause issue that the block will not be
-square. To make life easier, lets give it CSS3 property <b>box-sizing</b>
-with value <b>border-box</b> to make life easier. This gives me easier
-calculation, the padding and border will be included in the width and height,
-so I will not worry about thinking of how I set width to 64px and get 74px.
-</p>
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #333333">*</span> {
-    <span style="color: #008800; font-weight: bold">box-sizing</span>: <span style="color: #008800; font-weight: bold">border-box</span>;
-}
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">html</span>&gt;
+  &lt;<span style="color: #007700">b:skin</span>&gt;&lt;/<span style="color: #007700">b:skin</span>&gt;
+  &lt;<span style="color: #007700">head</span>&gt;&lt;/<span style="color: #007700">head</span>&gt;
+  &lt;<span style="color: #007700">body</span>&gt;
+    &lt;<span style="color: #007700">b:section</span> <span style="color: #0000CC">id</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;main&quot;</span>&gt;&lt;/<span style="color: #007700">b:section</span>&gt;
+  &lt;/<span style="color: #007700">body</span>&gt;
+&lt;/<span style="color: #007700">html</span>&gt;
 </pre></div>
 
 <p>
-The next thing is <i>border</i>. I need to do some changes to the border because
-I don't really understand how the default border table work. So, to change the
-border I first add border to the <code>td</code> selector and remove default
-table border. I give it some width to get bigger look
-~ <code>border: 8px solid black;</code>
+  Just out of curiosity, I go to my page and see something changing.
+  The <code>b:skin</code> become <code>style</code> tag, <code>b:section</code>
+  become <code>div</code> tag and also I another tag for style, and script
+  which I believe that is generated from blogger. I don't understand what the
+  code for, so I want to remove them, and I can. I simply add some attribute,
+  <code>b:css</code> value <code>false</code> to remove the generated
+  CSS and <code>b:js</code> value <code>false</code> for the JavaScript code.
+  I check again the output of the page. I make a slight change to the
+  <code>b:skin</code> because it become <code>style</code> tag and the
+  best practice is to put the <code>style</code> tag inside <code>head</code>.
 </p>
 
-<style>
-  .the-board2 td{
-    width: 64px;
-    height: 64px;
-    border: 8px solid black;
-  }
-</style>
-
-<table class="the-board2">
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-<p>
-OK. Now, the problem for me is there is gap between blocks. After debug, I find
-that there are property called <code>border-spacing</code> in the
-<code>table</code> style and it has 2px default value. So, I override the value
-with 0.
-</p>
-
-<style>
-  .the-board3 {
-    border-spacing: 0;
-  }
-  .the-board3 td{
-    width: 64px;
-    height: 64px;
-    border: 8px solid black;
-  }
-</style>
-
-<table class="the-board3">
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-<p>
-But now another problem appear, the border between <code>td</code>s not the same.
-The logic is because joining border between <code>td</code>s in the middle.
-How do I solve this? With another border for the table.
-</p>
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #007700">table</span><span style="color: #333333">,</span> <span style="color: #007700">table</span> <span style="color: #007700">td</span> {
-  <span style="color: #008800; font-weight: bold">border</span>: <span style="color: #0000DD; font-weight: bold">8</span><span style="color: #333399; font-weight: bold">px</span> <span style="color: #008800; font-weight: bold">solid</span> <span style="color: #008800; font-weight: bold">black</span>;
-}
-<span style="color: #007700">table</span> {
-  <span style="color: #008800; font-weight: bold">border-spacing</span>: <span style="color: #0000DD; font-weight: bold">0</span>;
-}
-<span style="color: #007700">table</span> <span style="color: #007700">td</span>{
-  <span style="color: #008800; font-weight: bold">width</span>: <span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333399; font-weight: bold">px</span>;
-  <span style="color: #008800; font-weight: bold">height</span>: <span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333399; font-weight: bold">px</span>;
-}
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">html</span>&gt;
+  &lt;<span style="color: #007700">head</span>&gt;
+    &lt;<span style="color: #007700">style</span> <span style="color: #0000CC">id</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;page-skin-1&#39;</span> <span style="color: #0000CC">type</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;text/css&#39;</span>&gt;
+      <span style="color: #333333">&lt;!</span><span style="color: #007700">--</span> <span style="color: #007700">--</span><span style="color: #333333">&gt;</span>
+    &lt;/<span style="color: #007700">style</span>&gt;
+  &lt;/<span style="color: #007700">head</span>&gt;
+  &lt;<span style="color: #007700">body</span>&gt;
+    &lt;<span style="color: #007700">div</span> <span style="color: #0000CC">class</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;no-items section&#39;</span> <span style="color: #0000CC">id</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;main&#39;</span>&gt;&lt;/<span style="color: #007700">div</span>&gt;
+  &lt;/<span style="color: #007700">body</span>&gt;
+&lt;/<span style="color: #007700">html</span>&gt;
 </pre></div>
-
-<style>
-  .the-board4, .the-board4 td {
-    border: 8px solid black;
-  }
-  .the-board4 {
-    border-spacing: 0;
-  }
-  .the-board4 td{
-    width: 64px;
-    height: 64px;
-  }
-</style>
-
-<table class="the-board4">
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-<br/>
-<br/>
-<h2>#3 The Action</h2>
-
-<p>
-  <i>The Board</i> is ready, now is the time for some actions. This is the time
-  when JavaScript enter. What kind of action I am going to handle? onclick?
-  Yes, exactly! Where do I need to put the onclick action? It can be in the
-  <code>html</code>, <code>body</code>, <code>td</code> (the blocks). The
-  most logical answer is in the <code>td</code> because that is where I need
-  to click, but the problem is I need to give each <code>td</code>
-  <code>onclick</code> code and that is not very effective. The solution for
-  this is I put the <code>onclick</code> in the <code>table</code> element.
-</p>
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">table</span> <span style="color: #0000CC">id</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;board&quot;</span>&gt;
-</pre></div>
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">script</span>&gt;
-  console.log(board);
-  board.onclick <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(e) {
-    console.log(e);
-  };
-&lt;/<span style="color: #007700">script</span>&gt;
-</pre></div>
-
-<p>
-  <b>board</b> variable automatically generated for the page script. I can use
-  it and it points to the <code>table</code> element. Now, how I detect the
-  <code>td</code> elements being clicked? See the variable called <code>e</code>
-  from the function <code>onclick</code>. The <code>e</code> variable has
-  bunch of properties, one of them I can verify which <code>td</code> is clicked
-  . The problem is every browser has different value and ways to access it.
-  Below is the code to handle for some browsers.
-</p>
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008800; font-weight: bold">function</span> getClickedElement(e) {
-    <span style="color: #008800; font-weight: bold">if</span> (e.path) { <span style="color: #888888">// chrome</span>
-        <span style="color: #008800; font-weight: bold">return</span> e.path[<span style="color: #0000DD; font-weight: bold">0</span>];
-    }
-    <span style="color: #008800; font-weight: bold">if</span> (e.explicitOriginalTarget) { <span style="color: #888888">// firefox</span>
-        <span style="color: #008800; font-weight: bold">return</span> e.explicitOriginalTarget;
-    }
-    <span style="color: #008800; font-weight: bold">if</span> (e.target) { <span style="color: #888888">// edge, internet explorer</span>
-        <span style="color: #008800; font-weight: bold">return</span> e.target;
-    }
-    console.error(<span style="background-color: #fff0f0">&quot;can&#39;t find element!&quot;</span>);
-}
-</pre></div>
-
-<p>
-  Next, I need to assign something to the clicked element. I simply put an 
-  "X" or "O" inside the <code>td</code> element to mark the moves.
-  Once block clicked, it can't be clicked again, so I add a property to the
-  element so it knows not to make another action. Another thing is it will 
-  take turns between X and O, to handle this I create a variable called
-  <code>current</code> it will change between X and O every successful new
-  click.
-</p>
-
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008800; font-weight: bold">var</span> x <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;X&quot;</span>, o <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;O&quot;</span>;
-<span style="color: #008800; font-weight: bold">var</span> current <span style="color: #333333">=</span> x;
-board.onclick <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(e) {
-    <span style="color: #008800; font-weight: bold">var</span> td <span style="color: #333333">=</span> getClickedElement(e);
-    <span style="color: #008800; font-weight: bold">if</span> (td <span style="color: #333333">&amp;&amp;</span> <span style="color: #333333">!</span>td.clicked) {
-        td.clicked <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">true</span>;
-        td.innerText <span style="color: #333333">=</span> current;
-        current <span style="color: #333333">=</span> current<span style="color: #333333">==</span>x<span style="color: #333333">?</span>o<span style="color: #333333">:</span>x;
-    }
-};
-</pre></div>
-
-<hr/>
-
-Alright, the game is ready! Although there are more improvements can be added
-but right now I can play the game. Refresh the page to get initial state, and
-for the win, you can see for yourself, haha!

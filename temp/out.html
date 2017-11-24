@@ -1,11 +1,11 @@
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008800; font-weight: bold">var</span> x <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;X&quot;</span>, o <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;O&quot;</span>;
-<span style="color: #008800; font-weight: bold">var</span> current <span style="color: #333333">=</span> x;
-board.onclick <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(e) {
-    <span style="color: #008800; font-weight: bold">var</span> td <span style="color: #333333">=</span> getClickedElement(e);
-    <span style="color: #008800; font-weight: bold">if</span> (td <span style="color: #333333">&amp;&amp;</span> <span style="color: #333333">!</span>td.clicked) {
-        td.clicked <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">true</span>;
-        td.innerText <span style="color: #333333">=</span> current;
-        current <span style="color: #333333">=</span> current<span style="color: #333333">==</span>x<span style="color: #333333">?</span>o<span style="color: #333333">:</span>x;
-    }
-};
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">html</span>&gt;
+  &lt;<span style="color: #007700">head</span>&gt;
+    &lt;<span style="color: #007700">style</span> <span style="color: #0000CC">id</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;page-skin-1&#39;</span> <span style="color: #0000CC">type</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;text/css&#39;</span>&gt;
+      <span style="color: #333333">&lt;!</span><span style="color: #007700">--</span> <span style="color: #007700">--</span><span style="color: #333333">&gt;</span>
+    &lt;/<span style="color: #007700">style</span>&gt;
+  &lt;/<span style="color: #007700">head</span>&gt;
+  &lt;<span style="color: #007700">body</span>&gt;
+    &lt;<span style="color: #007700">div</span> <span style="color: #0000CC">class</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;no-items section&#39;</span> <span style="color: #0000CC">id</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;main&#39;</span>&gt;&lt;/<span style="color: #007700">div</span>&gt;
+  &lt;/<span style="color: #007700">body</span>&gt;
+&lt;/<span style="color: #007700">html</span>&gt;
 </pre></div>

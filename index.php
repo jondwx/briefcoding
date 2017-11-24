@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html lang="en-us" b:css='false'>
-  &lt;head&gt;
+<html b:css='false' b:js='false'>
+
+  <head>
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,7 +13,8 @@
 
     <?php include('style.php') ?>
 
-  &lt;/head&gt;&lt;!--<head/>--&gt;
+  </head>
+
   <body>
 
     <?php include('content.php') ?>
@@ -22,5 +23,6 @@
 
     <?php include('script.php') ?>
 
-  &lt;!--</body>--&gt;&lt;/body&gt;
+  </body>
+  
 </html>

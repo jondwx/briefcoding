@@ -49,7 +49,7 @@
 <div class='main'>
 <div class='section' id='content'><div class='widget Blog' data-version='1' id='Blog0'>
 <div>
-<h1>The Most Minimalist Blogger Theme Code</h1>
+<h1>Some Title</h1>
 <div>
   <?php include('post.php') ?>
 </div>
